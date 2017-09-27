@@ -1,2 +1,27 @@
 apply plugin: "java"
 
+
+repositories{
+  maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+}
+
+dependencies{
+  testCompile 'org.hsqldb:hsqldb:2.4.0'
+  testCompile 'junit:junit:4.12'
+  testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
+}
+
+test{
+  testLogging{
+    exceptionFormat = 'full'
+    showStandardStreams = true
+  }
+}
+
+apply plugin: "idea"
+
+idea{
+  module{
+    downloadJavadoc = true
+  }
+}
