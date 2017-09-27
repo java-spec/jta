@@ -2,3 +2,7 @@ build
 .gradle
 
 *.sw*
+
+out
+.idea
+*.iml
