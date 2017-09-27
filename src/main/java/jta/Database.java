@@ -1,11 +1,11 @@
 package jta;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
-import javax.sql.DataSource;
 
 public class Database {
-  private final DataSource datasource;  
+  private final DataSource datasource;
 
   public Database(DataSource datasource) {
     this.datasource = datasource;

@@ -1,11 +1,13 @@
 package jta;
 
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import org.hsqldb.server.Server;
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
+
+import java.io.OutputStream;
+import java.io.PrintWriter;
+
 import static java.util.Objects.requireNonNull;
 
 public class DatabaseServer implements TestRule {

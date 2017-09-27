@@ -1,12 +1,17 @@
 package jta;
 
-import java.sql.*;
-import javax.sql.ConnectionPoolDataSource;
-import javax.sql.DataSource;
 import jta.Database.Action;
 import org.hsqldb.jdbc.JDBCDataSource;
-import org.junit.*;
-import static org.hamcrest.Matchers.*;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.*;
 
 public class JDBCTransactionTest {

@@ -1,13 +1,15 @@
 package jta;
 
+import org.junit.Test;
+
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Stream;
-import org.junit.*;
+
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.*;
 
 public class ScriptParserTest {

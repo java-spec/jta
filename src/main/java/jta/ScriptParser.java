@@ -1,14 +1,11 @@
 package jta;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.io.StreamTokenizer;
-import java.io.StringReader;
-import java.io.UncheckedIOException;
+import java.io.*;
 import java.util.Spliterator;
 import java.util.Spliterators.AbstractSpliterator;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
+
 import static java.util.stream.StreamSupport.stream;
 
 public class ScriptParser{
