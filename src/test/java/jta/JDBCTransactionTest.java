@@ -18,12 +18,14 @@ public class JDBCTransactionTest {
   };
   private static final Action DISABLE_AUTO_COMMIT = connection -> connection.setAutoCommit(false);
 
+  private final DatabaseServer server = new DatabaseServer("test");
   private final Database database = new Database(new JDBCDataSource(){{
-    setURL("jdbc:hsqldb:mem:test");
+    setURL("jdbc:hsqldb:hsql:///test");
   }});
 
   @Before
   public void setUp() throws Throwable {
+    server.start();
     database.executeScript(new ClassPathScript("bootstrap.sql"));
   }
 
@@ -54,4 +56,8 @@ public class JDBCTransactionTest {
     assertThat(rs.getBoolean(2), equalTo(true));
   }
 
+  @After
+  public void tearDown() throws Throwable {
+    server.stop();
+  }
 }
