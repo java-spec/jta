@@ -9,10 +9,10 @@ import java.util.stream.Stream;
 import static java.util.stream.StreamSupport.stream;
 
 public class ScriptParser{
-  private final int delimeter;
+  private final int delimiter;
 
-  public ScriptParser(int delimeter){
-    this.delimeter = delimeter;
+  public ScriptParser(int delimiter){
+    this.delimiter = delimiter;
   }
 
   public Stream<String> parse(String script){
@@ -31,13 +31,13 @@ public class ScriptParser{
 
   private Spliterator<String> tokenizer(Reader reader){
     return new AbstractSpliterator<String>(Long.MAX_VALUE, Spliterator.NONNULL | Spliterator.IMMUTABLE){
-      private final StreamTokenizer tokenizer = splitBy(delimeter, reader);
+      private final StreamTokenizer tokenizer = splitBy(delimiter, reader);
 
-      private StreamTokenizer splitBy(int delimeter, Reader reader){
+      private StreamTokenizer splitBy(int delimiter, Reader reader){
         StreamTokenizer tokenizer = new StreamTokenizer(reader);
         tokenizer.resetSyntax();
         tokenizer.wordChars(0, 0xFF);
-        tokenizer.whitespaceChars(delimeter, delimeter);
+        tokenizer.whitespaceChars(delimiter, delimiter);
         tokenizer.commentChar('#');
         return tokenizer;
       }
